@@ -76,6 +76,10 @@ call LspAddServer([#{
 	\    path: '/usr/local/bin/typescript-language-server',
 	\    args: ['--stdio'],
 	\  }])
+call LspAddServer([#{name: 'csharp-ls',
+		\ filetype: 'cs',
+		\ path: '/Users/jmw/.dotnet/tools/csharp-ls',
+		\ }])
 
 
 
@@ -84,7 +88,6 @@ packadd! vimspector
 let mapleader=" "
 
 nnoremap <leader>r :LspDiag next
-autocmd VimEnter * rightb vert term
 autocmd VimEnter * NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -96,3 +99,4 @@ nnoremap <leader>q :qa!<CR>
 nnoremap <leader>, :vertical resize +5<CR>
 nnoremap <leader>.  :vertical resize -5<CR>
 noremap <leader>s :w<CR>
+nnoremap <C-o> :LspHover<CR>
